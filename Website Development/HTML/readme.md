@@ -1,0 +1,2 @@
+About This Folder 📁
+This folder has a bunch of HTML code examples that explain almost every important part of HTML 🧩. The code is written in a simple, tutorial-style way, so it’s great for learning, practicing, or even teaching 👨‍💻📘. Each file focuses on a specific concept like basic structure, semantic tags, forms, media, and more—making it easy to understand and use as a quick reference 🚀
