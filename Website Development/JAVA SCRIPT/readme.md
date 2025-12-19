@@ -1,0 +1,2 @@
+About This Folder ⚡
+This folder contains JavaScript code examples that explain almost every core concept of JavaScript 🧩. The code is written in an easy, tutorial-style way, making it perfect for learning, practicing, and teaching 🧠💻. From variables, loops, and functions to DOM manipulation, events, and basic logic, each file focuses on a specific concept so you can understand how JavaScript works and apply it in real projects 🚀✨
