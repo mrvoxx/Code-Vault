@@ -1,0 +1,2 @@
+About This Folder 🧠⚡
+This folder contains JavaScript practice questions and problem-solving exercises to help strengthen your JS skills 💪📘. The questions cover important concepts like variables, conditions, loops, functions, arrays, objects, and DOM basics. These exercises are meant for hands-on practice, logic building, and interview preparation, so you can learn JavaScript by actually writing and thinking through code 🚀🔥
