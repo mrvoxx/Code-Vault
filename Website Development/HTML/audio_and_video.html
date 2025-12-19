@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Audio & Video Full Demo</title>
+</head>
+<body>
+  <h1>🎬 HTML Audio & Video Demo (Beginner-Friendly)</h1>
+  <p>This file demonstrates most HTML5 audio and video features with explanations.</p>
+
+  <!-- ==========================
+       VIDEO EXAMPLES
+       ========================== -->
+
+  <h2>1️⃣ Simple Video with Controls</h2>
+  <!-- 
+       <video> tag is used to embed videos
+       controls → shows play/pause/volume UI
+       preload="metadata" → loads only metadata (duration, size)
+  -->
+  <video width="480" controls preload="metadata">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+  </video>
+  <p>✅ Preload: metadata, multiple sources, basic controls</p>
+
+  <h2>2️⃣ Video with Autoplay, Loop, Muted</h2>
+  <!-- 
+       autoplay → video starts automatically (muted recommended for autoplay)
+       loop → repeats after finishing
+       muted → start without sound
+       preload="auto" → load entire video as soon as possible
+  -->
+  <video width="480" controls autoplay loop muted preload="auto">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p>✅ Autoplay, loop, muted, preload: auto</p>
+
+  <h2>3️⃣ Video with Poster Image</h2>
+  <!-- 
+       poster → image shown before video plays
+  -->
+  <video width="480" controls poster="https://www.w3schools.com/html/pic_trulli.jpg" preload="metadata">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p>✅ Poster image, preload: metadata</p>
+
+  <h2>4️⃣ Video with Captions (Track)</h2>
+  <!-- 
+       <track> → add captions/subtitles
+       kind="captions" → specify type
+       srclang="en" → language of captions
+       label → shown in controls
+       default → automatically show this track
+  -->
+  <video width="480" controls preload="auto">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    <track src="https://www.w3schools.com/html/mov_bbb.vtt" kind="captions" srclang="en" label="English" default>
+    Your browser does not support the video tag.
+  </video>
+  <p>✅ Captions added, preload: auto</p>
+
+  <hr>
+
+  <!-- ==========================
+       AUDIO EXAMPLES
+       ========================== -->
+
+  <h2>1️⃣ Simple Audio with Controls</h2>
+  <!-- 
+       <audio> tag is used to embed audio
+       controls → shows play/pause/volume UI
+       preload="metadata" → loads only metadata (duration, size)
+  -->
+  <audio controls preload="metadata">
+    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+    Your browser does not support the audio tag.
+  </audio>
+  <p>✅ Preload: metadata, multiple sources, basic controls</p>
+
+  <h2>2️⃣ Audio with Autoplay & Loop</h2>
+  <!-- 
+       autoplay → audio starts automatically
+       loop → repeats after finishing
+       preload="auto" → load full audio immediately
+  -->
+  <audio controls autoplay loop preload="auto">
+    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <p>✅ Autoplay, loop, preload: auto</p>
+
+  <h2>3️⃣ Audio with Multiple Sources</h2>
+  <!-- 
+       Using multiple sources ensures compatibility with different browsers
+       preload="none" → do not load until user clicks play
+  -->
+  <audio controls preload="none">
+    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+    Your browser does not support the audio tag.
+  </audio>
+  <p>✅ Multiple formats, preload: none</p>
+
+  <hr>
+
+  <!-- ==========================
+       EMBED ONLINE VIDEO (YouTube)
+       ========================== -->
+
+  <h2>Embed YouTube Video</h2>
+  <!-- 
+       <iframe> used to embed online videos (YouTube, Vimeo)
+       allowfullscreen → allows fullscreen playback
+  -->
+  <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+  <p>✅ Online streaming via iframe</p>
+
+  <hr>
+
+  <!-- ==========================
+       QUICK REFERENCE
+       ========================== -->
+  <h2>Quick Reference of Attributes</h2>
+  <ul>
+    <li><strong>controls</strong> — show play/pause/volume UI</li>
+    <li><strong>autoplay</strong> — automatically play media (muted recommended for videos)</li>
+    <li><strong>loop</strong> — repeat media after finishing</li>
+    <li><strong>muted</strong> — start without sound</li>
+    <li><strong>poster</strong> — preview image for video</li>
+    <li><strong>preload</strong> — hint browser what to load: <code>none</code>, <code>metadata</code>, <code>auto</code></li>
+    <li><strong>track</strong> — add captions/subtitles for video</li>
+    <li>Multiple <strong>&lt;source&gt;</strong> — support multiple formats for cross-browser compatibility</li>
+  </ul>
+
+</body>
+</html>

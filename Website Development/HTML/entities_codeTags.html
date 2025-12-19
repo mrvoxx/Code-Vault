@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Entities and Code Tag</title>
+</head>
+<body>
+
+    <h1>💡 HTML Entities & <code>Code</code> Tag Demo</h1>
+
+    <!-- ===========================
+         HTML ENTITIES
+         =========================== -->
+    <h2>1️⃣ HTML Entities</h2>
+    <p>
+        HTML entities are used to display characters that are reserved in HTML or not easily typed.
+        For example: &lt;, &gt;, &amp;, &quot;, &copy;
+    </p>
+
+    <!-- Example of reserved characters -->
+    <p>
+        &lt;h1&gt;This is a heading&lt;/h1&gt; → Displays as: &lt;h1&gt;This is a heading&lt;/h1&gt;
+    </p>
+
+    <p>
+        &amp; → Displays as &amp; <br>
+        &quot;Hello&quot; → Displays as "Hello" <br>
+        &copy; 2025 → Displays as © 2025 <br>
+        &reg; → Displays as ® <br>
+        &trade; → Displays as ™
+    </p>
+
+    <!-- Example of some math symbols -->
+    <p>
+        5 <&lt;> 10 → 5 < 10 <br>
+        10 &gt; 5 → 10 > 5 <br>
+        2 &plus; 2 = 4 → 2 + 2 = 4
+    </p>
+
+    <hr>
+
+    <!-- ===========================
+         CODE TAG
+         =========================== -->
+    <h2>2️⃣ The <code>&lt;code&gt;</code> Tag</h2>
+    <p>
+        The <code>&lt;code&gt;</code> tag is used to display inline code or programming code.
+        It preserves formatting and usually uses a monospace font.
+    </p>
+
+    <p>Example:</p>
+    <p>
+        Use <code>console.log("Hello World");</code> to print text in JavaScript.
+    </p>
+
+    <p>Another example with HTML code:</p>
+    <p>
+        &lt;div class="container"&gt;This is a div&lt;/div&gt;
+    </p>
+
+    <!-- Multiple code lines -->
+    <h3>Multiple code lines using <code>&lt;pre&gt;</code> with <code>&lt;code&gt;</code>:</h3>
+    <pre><code>
+function greet(name) {
+    console.log("Hello " + name);
+}
+greet("Ashwin");
+    </code></pre>
+
+    <hr>
+
+    <!-- Quick summary -->
+    <h2>✅ Quick Summary</h2>
+    <ul>
+        <li><strong>HTML Entities</strong> → display reserved or special characters (&lt;, &gt;, &amp;)</li>
+        <li><strong>&lt;code&gt;</strong> → show inline code</li>
+        <li><strong>&lt;pre&gt;</strong> → preserve formatting (use with &lt;code&gt; for multiple lines)</li>
+    </ul>
+
+</body>
+</html>
