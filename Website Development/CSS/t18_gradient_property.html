@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Makes website responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gradient property</title>
+
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            /* removes default margin */
+            padding: 0;
+            /* removes default padding */
+            box-sizing: border-box;
+            /* width & height include padding & border */
+        }
+
+        /* Body styling */
+        body {
+            background-color: rgb(254, 254, 174);
+            /* page background color */
+
+            display: flex;
+            /* enables flexbox */
+            flex-direction: column;
+            /* items stacked vertically */
+            gap: 50px;
+            /* space between elements */
+
+            justify-content: center;
+            /* vertical alignment */
+            align-items: center;
+            /* horizontal alignment */
+        }
+
+        /* Base box style used for all gradient examples */
+        div {
+            height: 200px;
+            /* box height */
+            width: 300px;
+            /* box width */
+
+            /* Basic linear gradient (top → bottom by default) */
+            background: linear-gradient(blue, green);
+
+            border-radius: 20px;
+            /* rounded corners */
+            border: 4px solid white;
+            /* white border */
+
+            box-shadow: 5px 5px 5px rgb(135, 133, 130);
+            /* shadow */
+
+            /* Smooth animation for hover effects */
+            transition: all 0.2s ease;
+        }
+
+        /* Linear gradient using direction keywords */
+        .toRightBottom {
+            /* Gradient flows from top-left → bottom-right */
+            background: linear-gradient(to bottom right,
+                    red 0% 20%,
+                    /* red starts at 0% and ends at 20% */
+                    yellow 50% 100%
+                    /* yellow from 50% to end */
+                );
+        }
+
+        /* Linear gradient using angle */
+        .angle {
+            /* 180deg = top to bottom */
+            background: linear-gradient(180deg,
+                    red 0% 20%,
+                    yellow 90% 100%);
+        }
+
+        /* Repeating linear gradient */
+        .repeatLinearGradient {
+            /* Pattern repeats infinitely */
+            background: repeating-linear-gradient(90deg,
+                    /* left to right */
+                    red 0% 10%,
+                    blue 10% 20%,
+                    yellow 20% 30%);
+        }
+
+        /* Gradient with transparency */
+        .usingOpacity {
+            /* Second color is transparent */
+            background: linear-gradient(rgb(21, 9, 245),
+                    rgba(21, 9, 245, 0.3)
+                    /* same color but faded */
+                );
+        }
+
+        /* Radial gradient (circle from center) */
+        .radialGradient {
+            background: radial-gradient(circle at center,
+                    /* shape and position */
+                    red 20% 40%,
+                    /* red ring */
+                    yellow
+                    /* outer color */
+                );
+        }
+
+        /* Repeating radial gradient */
+        .repeatRadialGradient {
+            background: repeating-radial-gradient(white 0% 20%,
+                    blue 20% 40%);
+        }
+
+        /* Conic gradient (rotational gradient) */
+        .conicalGradient {
+            background: conic-gradient(from 45deg,
+                    /* starting angle */
+                    red,
+                    rgb(233, 233, 255));
+
+            border-radius: 200px;
+            /* makes it circular */
+        }
+
+        /* Gradient text */
+        h1 {
+            font-size: 8vh;
+            text-align: center;
+
+            color: transparent;
+            /* hides original text color */
+
+            background: linear-gradient(90deg, red, yellow);
+
+            background-clip: text;
+            /* clips gradient inside text */
+            -webkit-background-clip: text;
+            /* required for Chrome/Safari */
+        }
+
+        /* Gradient overlay on image */
+        .gradientEffectAroundImg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Multiple backgrounds:
+       1️⃣ Radial gradient (overlay)
+       2️⃣ Image (base layer)
+        */
+            background:
+                radial-gradient(rgba(251, 251, 251, 0.1) 0% 50%,
+                    rgba(255, 3, 3, 0.8)),
+                url("https://imgs.search.brave.com/R5gcvSl9AKnu7J_eihdf3oOG-C35xaELOJXCw1QfCZc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuZGMuY29tLzIw/MjUtMDkvYm1kX3Rv/dXRfYWJzQmF0bWFu/XzF4MS5wbmc_dz05/MDA");
+
+            background-size: cover;
+            /* image covers whole box */
+            background-position: center;
+            /* image stays centered */
+            background-repeat: no-repeat;
+            /* prevents tiling */
+        }
+
+        /* Button styling */
+        button {
+            padding: 1em 2em;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 80px;
+            background: white;
+            position: relative;
+
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Gradient border effect using pseudo-element */
+        button::after {
+            content: "";
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 80px;
+            background-image: linear-gradient(violet, blue);
+
+            z-index: -1;
+            /* pushes gradient behind button */
+            padding: 5px;
+        }
+
+        /* Hover effects */
+        button:hover {
+            color: white;
+            transform: scale(1.1);
+
+            /* glowing gradient shadow */
+            box-shadow:
+                40px 0 100px red,
+                -40px 0 100px blue;
+        }
+
+        /* Hover animation for gradient boxes */
+        div:hover {
+            transform: translate(-5px) scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>this is gradient magic</h1>
+    <button>ashwin</button>
+
+    <div></div>
+    <div class="toRightBottom"></div>
+    <div class="angle"></div>
+    <div class="repeatLinearGradient"></div>
+    <div class="usingOpacity"></div>
+    <div class="radialGradient"></div>
+    <div class="repeatRadialGradient"></div>
+    <div class="conicalGradient"></div>
+    <div class="gradientEffectAroundImg"></div>
+</body>
+
+</html>
