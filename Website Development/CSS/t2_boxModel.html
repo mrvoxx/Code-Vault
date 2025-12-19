@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box model</title>
+    <style>
+        /* This applies to all <div> elements */
+        div{
+            border: 2px solid black;   /* Outer border */
+            padding: 10px;             /* Space inside the box */
+            margin: 5px;               /* Space outside the box */
+        }
+
+        /* Styling only for the div with id="container" */
+        #container{
+            padding:30px 10px;         /* Top-bottom = 30px, Left-right = 10px */
+            background-color: aquamarine;
+        }
+
+        /* Styling for elements with class="container" */
+        .container{
+            background-color: blue;
+            
+            /* box-sizing changes how width & height are calculated 
+               border-box means width includes border + padding */
+            box-sizing: border-box;
+
+            height: 100px;  /* Total height including padding+border */
+            width: 100px;   /* Total width including padding+border */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First box with custom ID styling -->
+    <div id="container"> box 1</div>
+
+    <!-- Normal div with default styles -->
+    <div> box 2</div>
+
+    <!-- Div using the .container class styles -->
+    <div class="container"> box 3</div>
+
+</body>
+</html>

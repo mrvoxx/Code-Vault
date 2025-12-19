@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid basics</title>
+    <style>
+        /* Reset default browser margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* =========================
+        SECTION 1 – FIXED GRID
+        ========================= */
+        .section1 {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            border: 2px solid black;
+            padding: 20px;
+
+            /* Enable grid layout */
+            display: grid;
+
+            /* 3 fixed-width columns */
+            grid-template-columns: 100px 100px 100px;
+
+            /* 3 fixed-height rows */
+            grid-template-rows: 100px 100px 100px;
+
+            /* Space between grid items */
+            gap: .4rem;
+        }
+
+        /* =========================
+        SECTION 2 – FRACTION (fr)
+        ========================= */
+        .section2 {
+            width: 300px;
+            height: 400px;
+            margin: 30px auto;
+            border: 2px solid black;
+            padding: 20px;
+
+            display: grid;
+
+            /* Each column takes equal remaining space */
+            grid-template-columns: 1fr 1fr 1fr;
+
+            /* Each row also shares space equally */
+            grid-template-rows: 1fr 1fr 1fr;
+
+            gap: .4rem;
+        }
+
+        /* =========================
+        SECTION 3 – MINMAX
+        ========================= */
+        .section3 {
+            width: 300px;
+            height: 400px;
+            margin: 30px auto;
+            border: 2px solid black;
+            padding: 20px;
+
+            display: grid;
+
+            /* First two columns fixed, third flexible */
+            grid-template-columns: 50px 50px minmax(50px, auto);
+
+            /* Same idea for rows */
+            grid-template-rows: 50px 50px minmax(50px, auto);
+
+            /* Horizontal gap only */
+            column-gap: 1rem;
+        }
+
+        /* =========================
+        SECTION 4 – REPEAT()
+        ========================= */
+        .section4 {
+            width: 300px;
+            height: 450px;
+            margin: 30px auto;
+            border: 2px solid black;
+            padding: 20px;
+
+            display: grid;
+
+            /* repeat() avoids writing same value again and again */
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 150px);
+
+            /* Vertical spacing between rows */
+            row-gap: .7rem;
+        }
+
+        /* =========================
+        SECTION 5 – GRID POSITIONING
+        ========================= */
+        .section5 {
+            width: 300px;
+            height: 750px;
+            margin: 30px auto;
+            border: 2px solid black;
+
+            display: grid;
+
+            /* 3 columns, 5 rows */
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(5, 150px);
+        }
+
+        /* Box spans ALL columns (1 → 4 means full width) */
+        #box1 {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+
+        /* Box spans rows 2 to 4 vertically */
+        #box2 {
+            grid-row-start: 2;
+            grid-row-end: 5;
+        }
+
+        /* grid-area shorthand:
+   row-start / column-start / row-end / column-end */
+        #box3 {
+            grid-area: 2 / 2 / 4 / 4;
+        }
+
+        /* =========================
+        COMMON STYLE FOR ALL GRID ITEMS
+        ========================= */
+        div {
+            background-color: blueviolet;
+            border: 2px solid blue;
+            border-radius: 20px;
+        }
+
+        /* =========================
+        GRID TEMPLATE AREAS (LAYOUT)
+        ========================= */
+        .body {
+            box-sizing: border-box;
+            background-color: antiquewhite;
+            text-align: center;
+
+            width: 500px;
+            height: 500px;
+            margin: 30px auto;
+            border: 2px solid black;
+            padding: 50px;
+
+            /* Enable grid */
+            display: grid;
+
+            /* Named layout structure */
+            grid-template-areas:
+                "header header"
+                "content sidebar"
+                "footer footer";
+
+            grid-gap: .4rem;
+        }
+
+        /* Assign elements to named grid areas */
+        header {
+            grid-area: header;
+        }
+
+        #content {
+            grid-area: content;
+        }
+
+        aside {
+            grid-area: sidebar;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+
+        /* Visual styling for layout boxes */
+        .css {
+            padding: 40px;
+            color: aliceblue;
+            background-color: blueviolet;
+            border: 2px solid blue;
+            border-radius: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>grid basics</h1>
+    <br>
+    <h2>section 1</h2>
+    <section class="section1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <br>
+    <h2>section 2</h2>
+    <section class="section2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <br>
+    <h2>section 3</h2>
+    <section class="section3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <br>
+    <h2>section 4</h2>
+    <section class="section4">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <br>
+    <h2>section 5</h2>
+    <section class="section5">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <br>
+    <h2>creating a layout</h2>
+    <div class="body">
+        <header class="css">header</header>
+        <section id="content" class="css">content</section>
+        <aside class="css">sidebar</aside>
+        <footer class="css">footer</footer>
+    </div>
+</body>
+
+</html>

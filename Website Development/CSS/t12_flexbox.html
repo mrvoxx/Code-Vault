@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex basics</title>
+    <style>
+        /* Reset default browser spacing and center text */
+        * {
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        /* ================= SECTION 1 ================= */
+        /* Basic flex row layout */
+        .sec1 {
+            display: flex;
+            /* Enable flexbox */
+            margin: 20px auto;
+            border: 2px dashed black;
+            background-color: bisque;
+            height: 50vh;
+
+            /* Space items evenly with space around them */
+            justify-content: space-around;
+
+            /* Align items vertically at center */
+            align-items: center;
+        }
+
+        /* ================= SECTION 2 ================= */
+        /* Flexbox in column direction */
+        .sec2 {
+            display: flex;
+            flex-direction: column;
+            /* Items stacked vertically */
+            margin: 20px auto;
+            border: 2px dashed black;
+            background-color: bisque;
+            height: 50vh;
+
+            /* Center items horizontally */
+            align-items: center;
+
+            /* Add equal vertical spacing */
+            justify-content: space-evenly;
+        }
+
+        /* ================= SECTION 3 ================= */
+        /* Flexbox with wrapping enabled */
+        .sec3 {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows items to move to next line */
+            margin: 20px auto;
+            border: 2px dashed black;
+            background-color: bisque;
+            height: 50vh;
+
+            /* Align wrapped rows vertically */
+            align-content: center;
+            /* justify-content: space-around; */
+            /* Align items inside each row */
+            align-items: center;
+
+            /* Space between items */
+            gap: 20px;
+
+            /*
+      ⚠ IMPORTANT LEARNING POINT:
+      When hovering, item size (font-size, border, etc.) changes.
+      Because flex-wrap is enabled, flexbox recalculates layout.
+      This causes items to shift, wrap, and re-align — looks like a "glitch".
+      This is NORMAL flexbox behavior, not a bug.
+    */
+        }
+
+        /* ================= SECTION 4 ================= */
+        /* Flexbox demonstrating individual item control */
+        .sec4 {
+            display: flex;
+            margin: 20px auto;
+            border: 2px dashed black;
+            background-color: bisque;
+            height: 50vh;
+
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        /* ================= FLEX ITEMS ================= */
+        /* Common styles for all flex items */
+        div {
+            background-color: blueviolet;
+            border: 2px solid black;
+            padding: 2.5vw;
+        }
+
+        /* Special flex item */
+        .item1 {
+            /* Prevent item from shrinking */
+            flex-shrink: 0;
+
+            /* Base size of item */
+            flex-basis: 100px;
+
+            /* Move this item to bottom */
+            align-self: flex-end;
+
+            /* Change visual order */
+            order: 1;
+        }
+
+        /* ================= HOVER EFFECT ================= */
+        /* Hovering changes size and appearance */
+        div:hover {
+            cursor: cell;
+            background-color: aqua;
+            opacity: 0.5;
+            transition: 0.6s;
+
+            /* Removing border and changing font-size
+       causes flexbox reflow, especially visible in section 3 */
+            border: none;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>using flex box property</h1>
+    <br>
+    <h2>section 1</h2>
+    <section class="sec1">
+        <div>item 1</div>
+        <div>item 2</div>
+        <div>item 3</div>
+    </section>
+    <h2>section 2</h2>
+    <section class="sec2">
+        <div>item 1</div>
+        <div>item 2</div>
+        <div>item 3</div>
+    </section>
+    <h2>section 3</h2>
+    <section class="sec3">
+        <div>item 1</div>
+        <div>item 2</div>
+        <div>item 3</div>
+        <div>item 4</div>
+        <div>item 5</div>
+        <div>item 6</div>
+        <div>item 7</div>
+        <div>item 8</div>
+    </section>
+    <h2>section 4</h2>
+    <section class="sec4">
+        <div class="item1">item 1</div>
+        <div>item 2</div>
+        <div>item 3</div>
+    </section>
+</body>
+
+</html>

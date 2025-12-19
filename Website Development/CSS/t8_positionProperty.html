@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position property</title>
+    <style>
+
+        /* Common styles applied to ALL div elements */
+        div {
+            box-sizing: border-box;        /* Padding + border included in size */
+            color: azure;                  /* Default text color */
+            background-color: darkgoldenrod;
+            border: 2px double blueviolet; /* Double border style */
+            padding: 30px;                 /* Space inside the box */
+            margin: 20px;                  /* Space outside the box */
+            text-align: center;            /* Center the text */
+            /* position: static;  (default position) */
+        }
+
+        /* Sticky box: sticks to the top while scrolling */
+        .box1 {
+            background-color: rgb(245, 176, 92);
+            position: sticky;              /* Becomes fixed after scrolling */
+            top: 0;                        /* Stick at top of viewport */
+            z-index: 1;                    /* Stay above other elements */
+        }
+
+        /* Relative positioned box */
+        .box2 {
+            margin: 0;
+            color: aliceblue;
+            background-color: blue;
+            position: relative;            /* Position relative to itself */
+            left: 30px;                    /* Moves 30px to the right */
+        }
+
+        /* Fixed box centered on the screen */
+        .box3 {
+            margin: 10px;
+            color: blue;
+            background-color: aquamarine;
+            width: 20vw;                   /* Width based on viewport */
+            height: 20vh;                  /* Height based on viewport */
+            opacity: 0.5;                  /* Makes box semi-transparent */
+            position: fixed;               /* Fixed to the screen */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Perfect center */
+            z-index: 1;                    /* Appear above other elements */
+        }
+
+        /* Parent box for absolute positioning */
+        .parentBox {
+            color: aliceblue;
+            background-color: chocolate;
+            position: relative;            /* Makes this the reference for child */
+        }
+
+        /* Child positioned inside parentBox */
+        .child {
+            margin: 0px;
+            padding: 0px;
+            color: blue;
+            background-color: chartreuse;
+            height: 50px;
+            width: 50px;
+            position: absolute;            /* Positioned relative to parentBox */
+            top: 0;                        /* Top-right corner */
+            right: 0;
+        }
+
+        /* Hover effect for all divs */
+        div:hover{
+            background-color: cadetblue;   /* Change color on hover */
+            opacity: 0.5;                  /* Make box transparent */
+            transition: 0.5s;              /* Smooth transition */
+        }
+
+</style>
+
+</head>
+
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="parentBox">this is parent box
+        <div class="child">child box</div>
+    </div>
+    <div>box4</div>
+    <div>box5</div>
+</body>
+
+</html>

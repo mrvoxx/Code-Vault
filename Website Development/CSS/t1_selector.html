@@ -1,0 +1,140 @@
+<!-- selector are use to choose which HTML elementn you want to style  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>working with selector</title>
+    <style>
+        /* universal selector - selects every element in the page */
+        * {
+            /* so the background for every element will be changed */
+            background-color:aliceblue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* element selector - used to select a particular category of element */
+        div {
+            background-color: blueviolet;
+            border: 2px solid black;
+            padding: 10px;
+            margin: 5px;
+            color: aliceblue;
+            text-align: center;
+
+        }
+
+        /* id selector - is use to select a single , unique HTML element using its id attribute */
+        #box4 {
+            background-color: aquamarine;
+            color: blueviolet;
+            font-family: cursive;
+        }
+
+        /* class selector - use to selector a type of class to style */
+        .box {
+            border-radius: 30px;
+            color: blueviolet;
+            background-color: antiquewhite;
+            border: 4px solid greenyellow;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* child selector - selects only direct child of an element */
+        section>div {
+            border: 6px solid snow;
+            border-radius: 40px;
+            background-color: brown;
+            border-style: dashed;
+        }
+
+        /* decendent selector - select all element inside another element at any depth */
+        section p {
+            background-color: cadetblue;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        /* pseudo selector - used to style an element in special state */
+        /* cursor is hovering over that element */
+        div:hover {
+            background-color: chocolate;
+        }
+        /* not visited link */
+        a:link{
+            background-color: red;
+            padding: 5px;
+            border-radius: 30px;
+
+        }
+
+        /* visited link  */
+        a:visited{
+            background-color: aquamarine;
+        }
+
+        /* currently being clicked */
+        a:active {
+            background-color: aqua;
+        }
+
+        /* to add something before element */
+        section::before{
+            content: "this is before section";
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 10px;
+            border: 2px solid rgb(0, 26, 255);
+            border-radius: 30px;
+            padding: 5px;
+        }
+        
+        /* to add something after element */
+        section::after{
+            content: "this is after section";
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 10px;
+            border: 2px solid rgb(0, 26, 255);
+            border-radius: 30px;
+            padding: 5px;
+            margin: 100px;
+        }
+
+        section::first-letter{
+            font-size: 20px;
+        }
+
+        /* to while selecting something it highlight */
+        ::selection{
+            background-color: blue;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>using selector</h1>
+    <hr>
+    <div>box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <!-- hovering effect will not work on box 4 because id selector have higher specificity than div:hover -->
+    <div id="box4"><a href="https://www.google.com/?zx=1765188238633&no_sw_cr=1">google</a></div>
+
+    <hr>
+    <section>
+        <div> div inside section</div>
+    </section>
+    <hr>
+
+    <section>
+        <main>
+            <p>section << main << p</p>
+        </main>
+    </section>
+
+</body>
+
+</html>

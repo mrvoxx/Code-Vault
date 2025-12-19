@@ -1,0 +1,98 @@
+<!DOCTYPE html> <!-- Defines HTML5 document -->
+<html lang="en"> <!-- Sets language to English -->
+<head>
+    <meta charset="UTF-8"> <!-- Ensures proper text encoding so letters show correctly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- Makes the webpage adjust to mobile screen sizes -->
+
+    <title>Display & Visibility Learning Example</title> <!-- Appears in browser tab -->
+
+    <style>
+        /* ------------------------- *
+           GLOBAL RESET
+           Removes default browser spacing
+        * ------------------------- */
+        * {
+            margin: 0;  /* Removes outer spacing of elements */
+            padding: 0; /* Removes inner spacing of elements */
+        }
+
+
+        /* ------------------------- *
+           PARENT CONTAINER (.section1)
+           This is the aqua box that holds the purple boxes
+        * ------------------------- */
+        .section1 {
+            background-color: aqua;      /* Sets background color */
+            border: 2px solid black;     /* Adds a border to see the area clearly */
+            width: 80vw;                 /* Width = 80% of the viewport width */
+            height: 30vh;                /* Height = 30% of the viewport height */
+            margin: 20px auto;           /* Centers the section horizontally */
+            padding: 20px;               /* Gives space inside the section */
+            text-align: center;          /* Centers inline-block children horizontally */
+        }
+
+
+        /* ------------------------- *
+           BASIC BOX STYLE (Purple Boxes)
+        * ------------------------- */
+        .box {
+            background-color: blueviolet;  /* Box color */
+            border: 2px solid black;       /* Box border */
+            width: 80px;                    /* Fixed width */
+            height: 40px;                   /* Fixed height */
+            display: inline-block;          /* Allows boxes to sit in the same line */
+            margin: 10px;                   /* Space between boxes */
+            color: white;                   /* Text color */
+            text-align: center;             /* Centers text inside box */
+            line-height: 40px;              /* Vertically centers text */
+        }
+
+
+        /* ------------------------- *
+           VISIBILITY EXAMPLE
+        * ------------------------- */
+
+        /* This box is hidden using visibility */
+        .hidden-box {
+            visibility: hidden; 
+            /* 
+               visibility: hidden;
+               → Hides the element BUT keeps its space in the layout
+               → The box is invisible, but the area it occupies remains
+            */
+        }
+
+        /* This box is removed using display:none */
+        .removed-box {
+            display: none;
+            /*
+               display: none;
+               → Completely removes the element from the layout
+               → It takes up NO space
+            */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MAIN SECTION -->
+    <section class="section1">
+
+        <!-- Normal visible box -->
+        <div class="box">Visible</div>
+
+        <!-- Hidden using visibility (space remains) -->
+        <div class="box hidden-box">Hidden</div>
+
+        <!-- Removed using display (no space taken) -->
+        <div class="box removed-box">Removed</div>
+
+        <!-- Another visible box to show spacing difference -->
+        <div class="box">Visible</div>
+
+    </section>
+
+</body>
+</html>

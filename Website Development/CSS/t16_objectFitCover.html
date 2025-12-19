@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object-fit explained</title>
+
+    <style>
+        /* ====== PAGE RESET & BASIC STYLES ====== */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1{
+            margin-bottom: 30px;
+        }
+
+        h2{
+            margin: 20px 0 10px;
+        }
+
+        /* ====== COMMON IMAGE CONTAINER ====== */
+        .box{
+            width: 300px;
+            height: 200px;
+            border: 2px dashed black;
+            margin: 15px auto;
+            overflow: hidden; /* hides overflow if image exceeds box */
+        }
+
+        /* ====== COMMON IMAGE STYLE ====== */
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* object-fit: fill
+           - Default behavior
+           - Image stretches to fill container
+           - Aspect ratio is NOT preserved (image may distort)
+        */
+        .fill{
+            object-fit: fill;
+        }
+
+        /* object-fit: contain
+           - Entire image is visible
+           - Aspect ratio IS preserved
+           - May leave empty space inside container
+        */
+        .contain{
+            object-fit: contain;
+            background-color: #ddd;
+        }
+
+        /* object-fit: cover
+           - Fills the container completely
+           - Aspect ratio IS preserved
+           - Some parts of image may be cropped
+        */
+        .cover{
+            object-fit: cover;
+        }
+
+        /* object-fit: none
+           - Image keeps original size
+           - Does NOT scale
+           - Can overflow container
+        */
+        .none{
+            object-fit: none;
+        }
+
+        /* object-fit: scale-down
+           - Chooses the smaller result of "none" or "contain"
+           - Image will not be larger than original size
+        */
+        .scale-down{
+            object-fit: scale-down;
+        }
+
+        /* ====== OBJECT POSITION ======
+           Controls which part of image is visible when cropped
+        */
+        .position{
+            object-fit: cover;
+            object-position: top left; /* try: center, bottom right */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS object-fit & object-position</h1>
+
+    <h2>object-fit: fill (default)</h2>
+    <div class="box">
+        <img src="https://imgs.search.brave.com/s-ZVSptOjWmbQnodfectet58F7CQdUvQu4dM3nJ3bmU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvdmludGFnZS1t/aW5pbWFsaXN0LWJh/dG1hbi1jYXJ0b29u/LWNoYXJhY3Rlci1k/ZXNpZ24ta2lkc18x/MTY2Njg4LTMzMTEu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw" class="fill">
+    </div>
+
+    <h2>object-fit: contain</h2>
+    <div class="box">
+        <img src="https://imgs.search.brave.com/s-ZVSptOjWmbQnodfectet58F7CQdUvQu4dM3nJ3bmU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvdmludGFnZS1t/aW5pbWFsaXN0LWJh/dG1hbi1jYXJ0b29u/LWNoYXJhY3Rlci1k/ZXNpZ24ta2lkc18x/MTY2Njg4LTMzMTEu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw" class="contain">
+    </div>
+
+    <h2>object-fit: cover</h2>
+    <div class="box">
+        <img src="https://imgs.search.brave.com/s-ZVSptOjWmbQnodfectet58F7CQdUvQu4dM3nJ3bmU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvdmludGFnZS1t/aW5pbWFsaXN0LWJh/dG1hbi1jYXJ0b29u/LWNoYXJhY3Rlci1k/ZXNpZ24ta2lkc18x/MTY2Njg4LTMzMTEu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw" class="cover">
+    </div>
+
+    <h2>object-fit: none</h2>
+    <div class="box">
+        <img src="https://imgs.search.brave.com/s-ZVSptOjWmbQnodfectet58F7CQdUvQu4dM3nJ3bmU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvdmludGFnZS1t/aW5pbWFsaXN0LWJh/dG1hbi1jYXJ0b29u/LWNoYXJhY3Rlci1k/ZXNpZ24ta2lkc18x/MTY2Njg4LTMzMTEu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw" class="none">
+    </div>
+
+    <h2>object-fit: scale-down</h2>
+    <div class="box">
+        <img src="https://imgs.search.brave.com/s-ZVSptOjWmbQnodfectet58F7CQdUvQu4dM3nJ3bmU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvdmludGFnZS1t/aW5pbWFsaXN0LWJh/dG1hbi1jYXJ0b29u/LWNoYXJhY3Rlci1k/ZXNpZ24ta2lkc18x/MTY2Njg4LTMzMTEu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw" class="scale-down">
+    </div>
+
+    <h2>object-position (with cover)</h2>
+    <div class="box">
+        <img src="https://imgs.search.brave.com/s-ZVSptOjWmbQnodfectet58F7CQdUvQu4dM3nJ3bmU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvdmludGFnZS1t/aW5pbWFsaXN0LWJh/dG1hbi1jYXJ0b29u/LWNoYXJhY3Rlci1k/ZXNpZ24ta2lkc18x/MTY2Njg4LTMzMTEu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw" class="position">
+    </div>
+
+</body>
+</html>

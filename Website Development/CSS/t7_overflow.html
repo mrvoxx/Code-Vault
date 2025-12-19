@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow in css</title>
+    <style>
+
+        /* Common styling for all divs */
+        div{
+            box-sizing: border-box;     /* Includes padding + border inside height */
+            border: 2px solid salmon;   /* Border around each div */
+            border-radius: 10px;        /* Rounded corners */
+            height: 100px;              /* Fixed height (content will overflow) */
+            padding: 6px;               /* Space inside div */
+            margin: 20px;               /* Space outside div */
+        }
+
+        /* div1 → Extra content is hidden (no scrollbar) */
+        .div1{
+            background-color: aqua;
+            overflow: hidden;            /* Extra text disappears */
+        }
+
+        /* div2 → Always shows scrollbar */
+        .div2{
+            background-color: blueviolet;
+            /* overflow: auto;  (shows scroll only if needed) */
+            overflow: scroll;             /* Scrollbar always visible */
+        }
+
+        /* div3 → Cuts overflow sharply (like hidden but without scrolling) */
+        .div3{
+            background-color: bisque;
+            overflow: clip;               /* New CSS: hides overflow, no scroll */
+            overflow-clip-margin: 10px;   /* Margin where clipping starts */
+        }
+
+        /* div4 → Only vertical scroll allowed */
+        .div4{
+            color: aliceblue;
+            background-color: cornflowerblue;
+            overflow-y: scroll;            /* Scroll only up/down */
+            /* overflow-x: hidden; (optional: hide horizontal scroll) */
+        }
+
+        /* Custom scrollbar styling (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar{
+            width: 15px;                  /* Scrollbar width */
+        }
+
+        ::-webkit-scrollbar-track{
+            background: rgb(177, 229, 255); /* Scrollbar background */
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background: black;             /* Scrollbar handle color */
+            border-radius: 200px;          /* Very round handle */
+        }
+
+        ::-webkit-scrollbar-thumb:hover{
+            background: darkorchid;        /* Color when hovered */
+        }
+
+</style>
+
+</head>
+<body>
+    <div class = "div1">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam, nesciunt facilis. Consequuntur ducimus, est placeat rem aut voluptas quo. Ipsum, placeat explicabo? Totam recusandae, in laudantium perferendis facere excepturi temporibus odit? Quod, in placeat? Explicabo ad iure obcaecati quod blanditiis, nisi, nulla repellat, pariatur libero minima distinctio quidem ea ratione at eveniet animi amet ducimus corporis. Suscipit quibusdam delectus dolores atque minima sit optio. Tenetur autem consectetur accusantium adipisci iusto totam doloribus, numquam, repudiandae, ratione aliquam eligendi non reprehenderit dignissimos! Accusamus aliquam totam, quidem dolorem odio enim fuga facilis, magni non asperiores laboriosam alias culpa ipsam ullam dolore minima voluptatem?
+    </div>
+    <div class = "div2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolor nemo odit sequi, tempore rerum placeat mollitia? Temporibus cupiditate pariatur at dicta eligendi ipsam quaerat officiis? Recusandae facilis repellendus distinctio error, veniam totam repudiandae beatae dicta debitis voluptate hic sunt, odio explicabo eos. Similique quidem libero recusandae, accusantium fuga nobis maiores error quo quisquam repellendus, voluptate sit quae eum eveniet sed magnam harum modi ipsam soluta porro illo nemo quia minima! Illum odio molestias expedita nostrum officia obcaecati doloribus impedit fugiat ipsa accusamus. Est nesciunt aliquam quos voluptatem in voluptatibus fugiat, voluptas ad provident suscipit ipsa animi distinctio, laborum eum!
+    </div>
+    <div class = "div3">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia aliquid, at dicta ea, commodi hic, laborum voluptates sit iusto recusandae illum. Dolor cum tenetur officia explicabo? Porro illo tenetur esse numquam in mollitia commodi et eligendi, eveniet maiores dignissimos illum vitae delectus inventore laborum amet ratione voluptates est blanditiis accusamus cupiditate laboriosam. Quidem tempora culpa numquam, voluptatibus nam eligendi. Maxime corrupti illum ducimus facere vero nemo, quisquam eveniet odio deserunt reprehenderit dolorem, pariatur ipsum laboriosam quos beatae maiores placeat, libero quia voluptatibus atque repellendus consequuntur? Animi vitae aspernatur ratione laborum, architecto sit commodi delectus alias nemo eius quos fugiat perferendis.
+    </div>
+    <div class = "div4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ea dolorem nihil eos possimus nostrum enim ducimus, doloremque reiciendis fugiat pariatur dolore soluta numquam vel eligendi officia optio voluptates expedita ab harum velit quibusdam fugit! Quo quas autem nisi laboriosam, vitae praesentium nesciunt dolorum. Molestiae totam repudiandae aliquid sequi necessitatibus ex fugiat blanditiis, quae eligendi vel quis omnis, esse atque delectus, consequatur officia recusandae ad magni cumque! Similique reiciendis nobis placeat voluptas nihil nisi iste autem eum repudiandae et? Magnam incidunt atque libero tenetur nihil at nesciunt odio. Ducimus omnis nesciunt quae tenetur cupiditate voluptates dignissimos in nobis accusantium laborum.
+    </div>
+</body>
+</html>

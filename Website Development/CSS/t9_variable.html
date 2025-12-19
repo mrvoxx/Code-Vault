@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables Explained</title>
+
+    <style>
+        /* 
+        ============================================
+        🎨 CSS VARIABLES (CUSTOM PROPERTIES)
+        ============================================
+        CSS variables start with --variablename.
+        They allow you to reuse values easily.
+        Changing one variable updates the whole website.
+        */
+
+        :root {
+            /* Global theme variables */
+            --primary-color: rgb(175, 175, 214);
+            --secondary-color: rgb(149, 75, 218);
+            --heading-size: 32px;
+            --padding: 20px;
+        }
+
+        /* Nav bar styling */
+        nav ul li {
+            background-color: var(--secondary-color); /* using variable */
+            list-style-type: none;
+            display: inline-block;
+            padding: var(--padding); /* using variable */
+            margin: 20px;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* 
+        ============================================
+        🔥 VARIABLE OVERRIDING INSIDE AN ELEMENT
+        ============================================
+        This li will override --secondary-color 
+        ONLY inside this element (local scope).
+        */
+        nav ul li:first-child {
+            --secondary-color: red; /* variable overridden locally */
+            background-color: var(--secondary-color);
+        }
+
+        /* Headings using variables */
+        h1 {
+            color: var(--primary-color);
+            font-size: var(--heading-size);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 24px;
+        }
+
+        /* Paragraph background color from variable */
+        p {
+            background-color: var(--primary-color);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Bonus: demonstrating opacity control using a variable */
+        .opacity-box {
+            background: var(--secondary-color);
+            opacity: 0.7; /* Could be made a variable too */
+            padding: 15px;
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li>Home (overridden color)</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <div>
+        <h1>Heading 1 using --primary-color</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae perspiciatis laboriosam maxime illo
+            reprehenderit mollitia.</p>
+    </div>
+
+    <section>
+        <h2>Heading 2 using --secondary-color</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam odit suscipit adipisci corrupti nostrum.</p>
+    </section>
+
+    <div class="opacity-box">
+        This box demonstrates opacity + background variable.
+    </div>
+
+</body>
+
+</html>

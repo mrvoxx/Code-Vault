@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float and clear</title>
+    <style>
+        /* Reset default browser margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 
+        Section acts as a container 
+        flow-root creates a new block formatting context
+        → this makes the section expand to contain floated elements inside it
+        */
+        section {
+            width: 90%;
+            display: flow-root;
+            /* prevents float collapse */
+            margin: 10px auto;
+            padding: 10px;
+            border: 2px dashed black;
+        }
+
+        /* 
+        Default div styling
+        float: left moves the div to the left
+        Text after this div will wrap around it
+        */
+        div {
+            margin: 10px;
+            border: 2px solid black;
+            background-color: aqua;
+            height: 20vh;
+            width: 20vw;
+            float: left;
+            /* makes the div float */
+        }
+
+        /* 
+        Red box styling
+        This div is also floated because it inherits float from div selector
+        */
+        .box {
+            margin: 10px;
+            border: 2px solid black;
+            background-color: rgb(255, 0, 0);
+            height: 20vh;
+            width: 20vw;
+        }
+
+        /* 
+        Clear works on block elements AFTER a float
+        clear: left forces the paragraph to move below left-floated elements
+        */
+        .para {
+            clear: left; /* stops text from wrapping beside the float */
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>float clear property</h1>
+    <br>
+    <h2>using float</h2>
+    <section>
+        <div></div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sunt id ipsa sed reprehenderit quam ab
+            eos harum veniam? Totam harum eligendi tempore similique quo, ratione amet culpa commodi eum impedit unde
+            repellat quod nostrum, ea nemo maiores numquam pariatur quam ipsum sapiente perspiciatis voluptatibus
+            doloremque tempora possimus? Totam itaque debitis tempore cum dolores. Temporibus deserunt facere dolorum
+            excepturi numquam aut vitae voluptates necessitatibus modi explicabo repellendus dignissimos incidunt,
+            perferendis ut atque, commodi provident unde id voluptatibus molestiae? Adipisci cupiditate aliquam harum
+            consequuntur dignissimos, aperiam provident distinctio alias expedita ad voluptatibus beatae quae atque
+            dolore odio ab itaque mollitia corporis.</p>
+    </section>
+    <br>
+    <h2>using clear</h2>
+    <section>
+        <div class="box"></div>
+        <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sunt id ipsa sed
+            reprehenderit quam ab
+            eos harum veniam? Totam harum eligendi tempore similique quo, ratione amet culpa commodi eum impedit unde
+            repellat quod nostrum, ea nemo maiores numquam pariatur quam ipsum sapiente perspiciatis voluptatibus
+            doloremque tempora possimus? Totam itaque debitis tempore cum dolores. Temporibus deserunt facere dolorum
+            excepturi numquam aut vitae voluptates necessitatibus modi explicabo repellendus dignissimos incidunt,
+            perferendis ut atque, commodi provident unde id voluptatibus molestiae? Adipisci cupiditate aliquam harum
+            consequuntur dignissimos, aperiam provident distinctio alias expedita ad voluptatibus beatae quae atque
+            dolore odio ab itaque mollitia corporis.</p>
+    </section>
+</body>
+
+</html>

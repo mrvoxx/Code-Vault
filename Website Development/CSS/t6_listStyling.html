@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list styling</title>
+    <style>
+        /* Styling for all li inside any ol */
+        ol li {
+            border: 2px solid black;
+            /* outer border of each item */
+            padding: 15px;
+            /* space inside each li */
+            margin: 10px;
+            /* space outside each li */
+            border-radius: 30px;
+            /* round corners */
+            text-align: center;
+            /* center the text */
+        }
+
+        /* List 1: uses Devanagari numbers + aqua background */
+        .list1 li {
+            background-color: aqua;
+            list-style: devanagari;
+            /* १, २, ३ style numbers */
+        }
+
+        /* List 2: number goes inside the box + violet background */
+        .list2 li {
+            list-style-position: inside;
+            /* number comes inside li box */
+            color: aliceblue;
+            /* text color */
+            background-color: blueviolet;
+        }
+
+        /* List 3: custom text as bullet + cadetblue box */
+        .list3 li {
+            /* Example for image bullet (not active) */
+            /* list-style-image: url(...); */
+
+            list-style-type: "bullet ";
+            /* custom bullet text */
+            background-color: cadetblue;
+        }
+
+        /* List 4: no bullet + green background */
+        .list4 li {
+            list-style-type: none;
+            /* removes number/bullet */
+            background-color: chartreuse;
+        }
+
+        /* Hover effect for ALL li elements */
+        li:hover {
+            background-color: chocolate;
+            /* change color on hover */
+            cursor: pointer;
+            /* pointer cursor on hover */
+            transition: 0.5s;
+            /* smooth color change */
+        }
+    </style>
+
+</head>
+
+<body>
+    <ol class="list1">
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+    </ol>
+    <ol class="list2">
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+    </ol>
+    <ol class="list3">
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+    </ol>
+    <ol class="list4">
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+    </ol>
+</body>
+
+</html>
