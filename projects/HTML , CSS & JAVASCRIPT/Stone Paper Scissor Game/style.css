@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    background: radial-gradient(rgb(245, 190, 245) 0% 60%, rgb(138, 23, 254)90%);
+}
+
+.mainScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    max-height: 1000px;
+    width: 95vh;
+    height: 95vh;
+    border-radius: 25px;
+    box-shadow: 8px 8px 30px 6px white;
+    background: radial-gradient(violet 0% 60%, rgb(154, 64, 244)90%);
+}
+
+#title {
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 1.2rem;
+}
+
+#title::after{
+    content: "by ashwin kishor Dangwal";
+    font-size: 8px;
+}
+
+.gameScreen {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+    padding: 22px;
+    border: 3px solid white;
+    border-radius: 40px;
+}
+
+.winAnimation {
+    animation: winner .5s ease-in-out;
+}
+
+@keyframes winner {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    20% {
+        transform: scale(1.3) rotate(10deg);
+    }
+    40% {
+        transform: scale(1.3) rotate(-10deg);
+    }
+    60% {
+        transform: scale(1.2) rotate(8deg);
+    }
+    80% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.drawAnimation {
+    animation: drawPulse 0.5s ease-in-out;
+}
+
+@keyframes drawPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.gameScreen img {
+    height: 25vh;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.players h2 {
+    font-size: .9rem;
+}
+
+.Info {
+    text-align: center;
+}
+
+.moveOption {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.options button {
+    background: transparent;
+    border: none;
+    margin: 0px 10px;
+    transition: all .2s ease;
+}
+
+button>img {
+    margin-top: 8px;
+    height: 18vh;
+}
+
+.options button:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gameScreen img {
+        height: 10vh;
+    }
+
+    button>img {
+        margin-top: 8px;
+        height: 10vh;
+    }
+}

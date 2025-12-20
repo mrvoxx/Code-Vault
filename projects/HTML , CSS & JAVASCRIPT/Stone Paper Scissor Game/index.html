@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>stone paper scissor game</title>
+</head>
+
+<body>
+    <main class="mainScreen">
+        <h1 id="title">Rock Paper Scissor</h1>
+        <div class="gameScreen">
+            <div class="players">
+                <section class="Info">
+                    <h2>PLayer</h2>
+                    <p class="Score">
+                        score : <span id="playerScore">0</span>
+                    </p>
+                    <img src="asstes/man.png" alt="player" id="playerDisplay">
+                </section>
+            </div>
+            <span id="winLossStatus">
+                Win/Loss
+            </span>
+            <div class="players">
+                <section class="Info">
+                    <h2>Computer</h2>
+                    <p class="Score">
+                        score : <span id="compScore">0</span>
+                    </p>
+                    <img src="asstes/robot.png" alt="computer" id="compDisplay">
+                </section>
+            </div>
+        </div>
+        <div class="moveOption">
+            <h3>Make a Move</h3>
+            <section class="options">
+                <button class = "pMove" id="stone">
+                    <img src="asstes/fist.png" alt="stone">
+                </button>
+                <button class = "pMove" id="paper">
+                    <img src="asstes/hello.png" alt="paper">
+                </button>
+                <button class = "pMove" id="scissor">
+                    <img src="asstes/peace.png" alt="scissor">
+                </button>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
