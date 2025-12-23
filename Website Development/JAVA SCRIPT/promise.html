@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>asynchronous programming</title>
+</head>
+<body>
+    <h1>this is a javascript OOPS</h1>
+    <div class="console">check out console in inspect for output</div>
+    <script>
+        let Mypromise = new Promise((resolve,reject) =>{
+            console.log("i am a promise");
+            resolve("work done");
+        });
+
+        Mypromise.then((res)=>{
+            console.log("successful ",res);
+        })
+
+        Mypromise.catch((err)=>{
+            console.log("unsuccessful",err)
+        })
+
+
+        function getData(dataId,getNextData){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log("data is : ",dataId);
+                    resolve("success");
+
+                    if(getNextData){
+                        getNextData();
+                    }
+                },5000);
+            });
+        }
+
+        function getDataNewWay(dataId){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log("data is : ",dataId);
+                    resolve("success");
+                },5000);
+            });
+        }
+
+        getDataNewWay(1).then((res)=>{
+            return getDataNewWay(2);
+
+        }).then((res)=>{
+            console.log("your work is ",res);
+        });
+
+    </script>
+</body>
+</html>
