@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>classes and object in javascript</title>
+</head>
+<body>
+    <h1>this is a javascript OOPS</h1>
+    <div class="console">check out console in inspect for output</div>
+    <script>
+        const student = {
+            name :"ashwin",
+            marks : 96,
+            printMarks : function(){
+                console.log("these are the marks" , this.marks);
+            },
+
+            printName(){
+                console.log("this is the name" , this.name);
+            }
+        };
+
+        const teacher = {
+            name : "vikas",
+            salary : 10000
+        };
+
+        student.printMarks();
+        student.printName();
+
+        teacher.__proto__ = student;
+        teacher.printName();
+        const user = Object.create(student);
+        user.marks = 100;
+        user.printMarks();
+        user.name = "rohit";
+        user.printName();
+    </script>
+</body>
+</html>
