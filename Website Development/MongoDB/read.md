@@ -15,10 +15,10 @@ show dbs
 🖥️ **Sample Output:**
 
 ```
-admin    40.00 KiB
-config  108.00 KiB
-local    40.00 KiB
-websiteDB  8.00 KiB
+admin      40.00 KiB
+config    108.00 KiB
+local      40.00 KiB
+websiteDB   8.00 KiB
 ```
 
 ---
@@ -132,7 +132,7 @@ db.student.insertMany([
 
 ---
 
-## 👀 Read / View All Documents
+## 👀 Read / View Documents (find)
 
 ```js
 db.student.find()
@@ -140,14 +140,7 @@ db.student.find()
 
 📌 **What it does:** Fetches all documents from `student` collection.
 
-🖥️ **Output:**
-
-```
-{ _id: ObjectId("..."), name: 'Ashwin', class: 12, section: 'D' }
-{ _id: ObjectId("..."), name: 'Rahul', class: 11, section: 'A' }
-```
-
-✨ Prettier view:
+✨ **Prettier output:**
 
 ```js
 db.student.find().pretty()
@@ -155,28 +148,127 @@ db.student.find().pretty()
 
 ---
 
-## 🔎 Find with Condition
+## 🔎 Find with Conditions
 
 ```js
 db.student.find({ class: 12 })
 ```
 
-📌 **What it does:** Shows only students from class 12.
+📌 **What it does:** Returns only documents matching the condition.
 
 ---
 
-## 🧮 Count Documents
+## 🔃 Sort Results
 
 ```js
-db.student.countDocuments()
+db.student.find().sort({ class: 1 })
 ```
 
-📌 **What it does:** Returns total number of documents.
+📌 **What it does:** Sorts results in **ascending order** (`1`).
 
-🖥️ **Output:**
-
+```js
+db.student.find().sort({ class: -1 })
 ```
-3
+
+📌 **Descending order** (`-1`).
+
+---
+
+## 🎯 Limit Results
+
+```js
+db.student.find().limit(2)
+```
+
+📌 **What it does:** Returns only the first `n` documents.
+
+---
+
+## ✏️ Update Documents
+
+### Update ONE
+
+```js
+db.student.updateOne(
+  { name: "Ashwin" },
+  { $set: { section: "A" } }
+)
+```
+
+### Update MANY
+
+```js
+db.student.updateMany(
+  { class: 12 },
+  { $set: { promoted: true } }
+)
+```
+
+---
+
+## 🧩 Update Operators
+
+### `$set` – Add / Modify field
+
+```js
+{ $set: { age: 18 } }
+```
+
+### `$unset` – Remove field
+
+```js
+{ $unset: { age: "" } }
+```
+
+### `$exists` – Check field existence
+
+```js
+db.student.find({ age: { $exists: true } })
+```
+
+---
+
+## 🧮 Comparison Operators
+
+```js
+$eq   // equal
+$ne   // not equal
+$gt   // greater than
+$gte  // greater than or equal
+$lt   // less than
+$lte  // less than or equal
+```
+
+📌 Example:
+
+```js
+db.student.find({ class: { $gte: 11 } })
+```
+
+---
+
+## 🔗 Logical Operators
+
+### `$and`
+
+```js
+db.student.find({
+  $and: [{ class: 12 }, { section: "A" }]
+})
+```
+
+### `$or`
+
+```js
+db.student.find({
+  $or: [{ class: 10 }, { class: 11 }]
+})
+```
+
+### `$not`
+
+```js
+db.student.find({ class: { $not: { $eq: 12 } } })
 ```
 
 ---
@@ -213,18 +305,65 @@ true
 
 ---
 
+## 🌳 B‑Tree & Indexes
+
+📌 MongoDB uses **B‑Tree indexes** to make queries fast ⚡
+
+### Create Index
+
+```js
+db.student.createIndex({ name: 1 })
+```
+
+### View Indexes
+
+```js
+db.student.getIndexes()
+```
+
+### Drop Index
+
+```js
+db.student.dropIndex({ name: 1 })
+```
+
+---
+
+## 🔍 Query Explain Plan
+
+```js
+db.student.find({ name: "Ashwin" }).explain()
+```
+
+📌 **What it does:** Shows how MongoDB executes the query.
+
+### Execution Stats (performance)
+
+```js
+db.student.find({ name: "Ashwin" }).explain("executionStats")
+```
+
+📊 Shows:
+
+* Documents scanned
+* Index used or not
+* Query time
+
+---
+
 ## 🧠 Pro Tips
 
 * MongoDB is **schema‑less** 🧬
 * Database is created **only after first insert**
 * `_id` is auto‑generated if not provided
 * Collections ≈ Tables, Documents ≈ Rows
+* Indexes = 🚀 performance
 
 ---
 
-## 🚀 Next Level Topics (Optional)
+## 🚀 Next Level Topics
 
-* Indexes 📈
+* Index optimization 📈
 * Aggregation Pipeline 🔗
 * Mongoose with Node.js 🧩
 * MongoDB Atlas ☁️
